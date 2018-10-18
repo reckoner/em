@@ -80,7 +80,7 @@ def iterate_over_stream(stream):
     BUF_SIZE = 32768
 
     for buf in iter(lambda: os.read(stream.fileno(), BUF_SIZE), b''):
-        for line in buf.decode(sys.getfilesystemencoding()).splitlines():
+        for line in buf.decode(sys.getfilesystemencoding(),'ignore').splitlines():
             yield line
 
 
